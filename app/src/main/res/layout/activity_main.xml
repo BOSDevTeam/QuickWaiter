@@ -1,0 +1,215 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent">
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/colorApp">
+
+            <ExpandableListView android:id="@+id/android:list"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+            </ExpandableListView>
+
+            <LinearLayout android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray">
+                </LinearLayout>
+
+            <!-- start list view items -->
+            <LinearLayout android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView  android:id="@+id/tvSubMenuName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_submenu"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="5dp"/>
+
+                <ListView android:id="@+id/lvItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@color/colorGray"
+                    android:dividerHeight="1dp">
+                </ListView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- start order place -->
+        <LinearLayout android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:gravity="center">
+
+                <ImageButton android:id="@+id/btnBarcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/barcode"
+                    android:background="@drawable/button_gray"
+                    android:visibility="gone"/>
+
+                <TextView  android:id="@+id/tvWaiterName"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorSoftBlack"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView  android:id="@+id/tvTable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorSoftBlack"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:text="Table - "/>
+
+                <TextView  android:id="@+id/tvTableName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorSoftBlack"
+                    android:textSize="19sp"
+                    android:textStyle="bold"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <Button android:id="@+id/btnSendOrder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/button_sendorder"
+                    android:textColor="@color/colorApp"
+                    android:textSize="16sp"
+                    android:background="@drawable/button_gray"
+                    android:textAllCaps="false"/>
+
+                <Button android:id="@+id/btnChooseTable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/button_choosetable"
+                    android:background="@drawable/button_gray"
+                    android:textColor="@color/colorSoftBlack"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lvOrder"
+                android:background="@color/colorPrimary">
+            </ListView>
+            
+            <ScrollView android:id="@+id/layoutPrint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:background="@color/colorWhite">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:id="@+id/tvPrintLabelTable"
+                           style="@style/styleTextViewPrint"
+                            android:text="Table"/>
+                        <TextView android:id="@+id/tvPrintLabelWaiter"
+                            style="@style/styleTextViewPrint"
+                            android:text="Waiter"/>
+                        <TextView android:id="@+id/tvPrintDate"
+                            style="@style/styleTextViewPrint"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:id="@+id/tvPrintTable"
+                            style="@style/styleTextViewPrint"/>
+                        <TextView android:id="@+id/tvPrintWaiter"
+                            style="@style/styleTextViewPrint"/>
+                        <TextView android:id="@+id/tvPrintTime"
+                            style="@style/styleTextViewPrint"/>
+                    </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimary">
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:id="@+id/tvPrintHeaderItem"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="Item Name"
+                            style="@style/styleTextViewHeaderPrint"/>
+                        <TextView android:id="@+id/tvPrintHeaderQty"
+                            android:layout_width="wrap_content"
+                            android:text="Qty"
+                            style="@style/styleTextViewHeaderPrint"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/layoutPrintList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

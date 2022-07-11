@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@color/colorWhite">
+
+    <ImageButton android:id="@+id/btnClose"
+        style="@style/dialogClose"/>
+
+    <View style="@style/DividerGray"/>
+
+    <android.support.v7.widget.RecyclerView android:id="@+id/rvRootItemSub"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/list_sale_item_sub"
+        android:background="@color/colorSoftGray"/>
+
+    <Button android:id="@+id/btnOk"
+        android:text="@string/ok"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:background="@drawable/button_red"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="right"/>
+
+</LinearLayout>

@@ -1,0 +1,99 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout android:id="@+id/layoutServerProperty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView android:id="@+id/tvTitleServerProperty"
+            android:text="Setup Server Property"
+            style="@style/styleTitleInStart" />
+
+    <EditText android:id="@+id/etIPAddress"
+        android:hint="@string/ip_address"
+        style="@style/styleEditTextInStart"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
+    <EditText android:id="@+id/etDatabaseName"
+        android:hint="@string/database"
+        android:layout_marginTop="5dp"
+        style="@style/styleEditTextInStart"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
+    <EditText android:id="@+id/etServerUser"
+        android:hint="@string/user"
+        android:layout_marginTop="5dp"
+        style="@style/styleEditTextInStart"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
+    <EditText android:id="@+id/etServerPassword"
+        android:hint="@string/password"
+        android:layout_marginTop="5dp"
+        style="@style/styleEditTextInStart"
+        android:inputType="text"
+        android:imeOptions="actionDone"/>
+
+        <Button android:id="@+id/btnOK"
+            android:background="@drawable/button_red"
+            android:text="@string/btnok"
+            android:layout_marginTop="10dp"
+            style="@style/styleButtonInStart"/>
+</LinearLayout>
+
+    <LinearLayout android:id="@+id/layoutRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView android:id="@+id/tvTitleRegister"
+            android:text="Setup Register Key"
+            style="@style/styleTitleInStart"/>
+
+        <EditText android:id="@+id/etMacAddress"
+            style="@style/styleEditTextInStart"
+            android:enabled="false"/>
+
+        <EditText android:id="@+id/etRegisterKey"
+            android:layout_marginTop="5dp"
+            style="@style/styleEditTextInStart"
+            android:hint="Register Key"
+            android:inputType="text"
+            android:imeOptions="actionDone"/>
+
+            <Button android:id="@+id/btnRegister"
+                android:background="@drawable/button_red"
+                android:text="Register"
+                android:layout_marginTop="10dp"
+                style="@style/styleButtonInStart"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/layoutImportData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button android:id="@+id/btnImportData"
+            android:background="@drawable/button_red"
+            android:text="@string/button_import"
+            style="@style/styleButtonInStart"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

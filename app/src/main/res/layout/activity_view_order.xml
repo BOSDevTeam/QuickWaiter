@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ViewOrderActivity"
+        android:background="@color/colorPrimary">
+
+        <View android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorAccent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView android:id="@+id/tvTable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:typeface="monospace"
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorSoftBlack"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+                <TextView android:id="@+id/tvHeaderItem"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/item"
+                    android:textStyle="bold"/>
+                <TextView android:id="@+id/tvHeaderQuantity"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/quantity"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+                <TextView android:id="@+id/tvHeaderSalePrice"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="SalePrice"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+                <TextView android:id="@+id/tvHeaderAmount"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="Amount(with dis)"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <ListView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/lvViewOrder"
+                android:background="@color/colorGray"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:divider="@color/colorGray"
+                android:dividerHeight="1dp"/>
+
+            <LinearLayout android:id="@+id/layoutOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@color/colorGray"
+                android:visibility="gone"/>
+
+            <TableLayout android:id="@+id/layoutAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGray"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="right"
+                android:padding="5dp">
+
+                <TableRow>
+                    <TextView android:id="@+id/tvLabelSubTotal"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"
+                        android:text="@string/sub_total"/>
+                    <TextView android:id="@+id/tvSubTotal"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"/>
+                </TableRow>
+
+                <TableRow >
+                    <TextView android:id="@+id/tvLabelCharges"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"
+                        android:text="@string/service_charges"/>
+                    <TextView android:id="@+id/tvCharges"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"/>
+                </TableRow>
+
+                <TableRow  >
+                    <TextView android:id="@+id/tvLabelTax"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"
+                        android:text="@string/tax"/>
+                    <TextView android:id="@+id/tvTax"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"/>
+                </TableRow>
+
+                <TableRow android:visibility="gone">
+                    <TextView android:id="@+id/tvLabelDiscount"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"
+                        android:text="Discount"/>
+                    <TextView android:id="@+id/tvDiscount"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView android:id="@+id/tvLabelGrandTotal"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"
+                        android:text="@string/grand_total"/>
+                    <TextView android:id="@+id/tvGrandTotal"
+                        android:layout_width="200dp"
+                        style="@style/styleViewOrderText"/>
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+</LinearLayout>

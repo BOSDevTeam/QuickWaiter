@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/colorWhite">
+
+    <EditText android:id="@+id/etItemID"
+        style="@style/styleSetupDialogEditText"
+        android:hint="ItemID"
+        android:inputType="text"
+        android:imeOptions="actionNext"
+        android:enabled="false"/>
+
+    <EditText  android:id="@+id/etItemName"
+        style="@style/styleSetupDialogEditText"
+        android:hint="Name"
+        android:inputType="text"
+        android:imeOptions="actionNext"
+        android:enabled="false"/>
+
+    <Button android:id="@+id/btnAddItemSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_item_sub"
+        android:textSize="15sp"
+        android:background="@drawable/button_gray"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/ic_baseline_add_24"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/colorPrimary"/>
+
+    <LinearLayout style="@style/dialogBottom">
+
+        <Button android:id="@+id/btnClose"
+            style="@style/styleSetupDialogCloseButton"/>
+
+        <Button android:id="@+id/btnSave"
+            style="@style/styleSetupDialogSaveButton"/>
+
+    </LinearLayout>
+
+</LinearLayout>

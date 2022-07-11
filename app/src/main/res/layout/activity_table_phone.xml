@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TableActivity"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent"></LinearLayout>
+
+    <android.support.v4.widget.DrawerLayout android:id="@+id/sliderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView android:id="@+id/tvTableTypeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@color/colorOccupiedTable"
+                    android:layout_toLeftOf="@+id/tvLabelOccupiedTable"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView android:id="@+id/tvLabelOccupiedTable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_toLeftOf="@+id/imgBookingTable"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/lbl_using_tables"/>
+
+                <ImageView android:id="@+id/imgBookingTable"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@color/colorBookingTable"
+                    android:layout_toLeftOf="@+id/tvLabelBookingTable"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView android:id="@+id/tvLabelBookingTable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_toLeftOf="@+id/imgEmptyTable"
+                    android:layout_marginRight="10dp"
+                    android:text="Booking Table"/>
+
+                <ImageView android:id="@+id/imgEmptyTable"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@color/colorEmptyTable"
+                    android:layout_toLeftOf="@+id/tvLabelEmptyTable"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView android:id="@+id/tvLabelEmptyTable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:fontFamily="Arial Narrow"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/lbl_free_tables"/>
+
+            </RelativeLayout>
+
+            <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout android:id="@+id/tableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <GridView android:id="@+id/gvOccupiedTable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="5"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:columnWidth="100dp"
+                        android:scrollbars="none"></GridView>
+
+                    <GridView android:id="@+id/gvBookingTable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="5"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:columnWidth="100dp"
+                        android:scrollbars="none"></GridView>
+
+                    <GridView android:id="@+id/gvEmptyTable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="5"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:columnWidth="100dp"
+                        android:scrollbars="none"></GridView>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+        <ListView android:id="@+id/lvTableType"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorApp"
+            android:layout_gravity="start"></ListView>
+
+    </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

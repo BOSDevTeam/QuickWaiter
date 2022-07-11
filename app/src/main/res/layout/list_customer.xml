@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+        <TextView android:id="@+id/tvTable"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorOccupiedTable"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_marginRight="5dp"
+            android:textSize="16sp"/>
+
+        <TextView android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorSoftBlack"
+            android:textSize="16sp"/>
+
+        <TextView android:id="@+id/tvTime"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorSoftBlack"
+            android:textSize="16sp"/>
+
+        <LinearLayout android:id="@+id/layoutMan"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+        <ImageButton android:id="@+id/btnMinusMan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"/>
+        <TextView android:id="@+id/tvMan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorSoftBlack"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"/>
+        <ImageButton android:id="@+id/btnPlusMan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"/>
+    </LinearLayout>
+
+        <LinearLayout android:id="@+id/layoutWomen"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+        <ImageButton android:id="@+id/btnMinusWomen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"/>
+        <TextView android:id="@+id/tvWomen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorSoftBlack"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"/>
+        <ImageButton android:id="@+id/btnPlusWomen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"/>
+    </LinearLayout>
+
+        <LinearLayout android:id="@+id/layoutChild"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+        <ImageButton android:id="@+id/btnMinusChild"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"/>
+        <TextView android:id="@+id/tvChild"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorSoftBlack"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"/>
+        <ImageButton android:id="@+id/btnPlusChild"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"/>
+    </LinearLayout>
+
+        <LinearLayout android:id="@+id/layoutTotal"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+        <ImageButton android:id="@+id/btnMinusTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"/>
+        <TextView android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorSoftBlack"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"/>
+        <ImageButton android:id="@+id/btnPlusTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"/>
+    </LinearLayout>
+
+        <Button android:id="@+id/btnSave"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:text="OK"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorSuccess"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

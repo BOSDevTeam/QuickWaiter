@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp">
+
+        <TextView android:id="@+id/tvPNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"/>
+
+        <TextView android:id="@+id/tvItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:typeface="monospace"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView android:id="@+id/tvItemSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorSoftGray"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:background="@color/colorAccent"
+            android:padding="5dp"/>
+
+        <TextView android:id="@+id/tvTaste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorGray"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold" />
+
+        <TextView android:id="@+id/tvTasteMulti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorGray"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold" />
+
+        <TextView android:id="@+id/tvTastePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorApp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <LinearLayout android:id="@+id/layoutQtyTaste"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center|left">
+
+        <ImageButton android:id="@+id/imgbtnMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/minus"
+            android:background="@drawable/button_transparent"/>
+
+        <EditText android:id="@+id/etQuantity"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/qty_default_text"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:enabled="false"
+            android:textStyle="bold"
+            android:inputType="number"/>
+
+        <ImageButton android:id="@+id/imgbtnPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/add"
+            android:background="@drawable/button_transparent"/>
+
+        <ImageButton android:id="@+id/imgbtnCalculator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/button_transparent"
+            android:src="@mipmap/calculator"/>
+
+            <ImageButton android:id="@+id/imgbtnPNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/button_transparent"
+                android:src="@mipmap/pnumber"/>
+
+            <ImageButton android:id="@+id/imgbtnTaste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/button_transparent"
+                android:src="@mipmap/taste"/>
+
+            <ImageButton android:id="@+id/imgbtnTasteMulti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/button_red"
+                android:src="@mipmap/taste"/>
+
+        </LinearLayout>
+
+        <ImageButton android:id="@+id/imgbtnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/cancel"
+            android:background="@drawable/button_transparent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

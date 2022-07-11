@@ -1,0 +1,132 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:background="@mipmap/background">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@color/colorMirror">
+
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:orientation="vertical">
+
+            <Button android:id="@+id/btnUpdateData"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btnUpdateData"
+                android:textColor="@color/colorGray"
+                android:background="@drawable/button_update"
+                android:typeface="monospace"
+                android:textSize="16sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:padding="10dp"
+                android:fontFamily="Arial Narrow"
+                android:layout_marginLeft="10dp">
+            </Button>
+
+            <Button android:id="@+id/btnExit"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btnExit"
+                android:textColor="@color/colorAccent"
+                android:background="@drawable/button_update"
+                android:typeface="monospace"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:fontFamily="Arial Narrow"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp">
+            </Button>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_login_layout"
+            android:layout_marginRight="10dp">
+
+            <TextView android:id="@+id/tvTitleLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/waiter_login"
+                android:textColor="@color/colorGray"
+                android:textSize="19sp"
+                android:typeface="monospace"
+                android:fontFamily="Arial Narrow" />
+
+            <Spinner android:id="@+id/spUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_login_spinner"
+                android:popupBackground="@color/colorMirror"/>
+
+            <EditText android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password_hiht"
+                android:textSize="21sp"
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword"
+                android:background="@color/colorMirror"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGray"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:focusable="false"
+                android:fontFamily="Arial Narrow" />
+
+            <Button android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnLogin"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_red"
+                android:typeface="monospace"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="?android:attr/buttonBarButtonStyle"
+                android:padding="10dp"
+                android:fontFamily="Arial Narrow"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" >
+            </Button>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#33333F"
+        android:gravity="center|left">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copyright"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:typeface="monospace"
+            android:fontFamily="Arial Narrow" />
+    </LinearLayout>
+</LinearLayout>
+
+

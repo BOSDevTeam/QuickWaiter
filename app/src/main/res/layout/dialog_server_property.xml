@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <EditText android:id="@+id/etIPAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSoftBlack"
+        android:fontFamily="Arial Narrow"
+        android:textSize="17sp"
+        android:hint="@string/ip_address"
+        android:textColorHint="@color/colorGray"
+        android:padding="10dp"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
+    <EditText android:id="@+id/etDatabaseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSoftBlack"
+        android:fontFamily="Arial Narrow"
+        android:textSize="17sp"
+        android:hint="@string/database"
+        android:padding="10dp"
+        android:textColorHint="@color/colorGray"
+        android:layout_marginTop="5dp"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
+    <EditText android:id="@+id/etServerUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSoftBlack"
+        android:fontFamily="Arial Narrow"
+        android:textSize="17sp"
+        android:hint="@string/user"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:textColorHint="@color/colorGray"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
+    <EditText android:id="@+id/etServerPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSoftBlack"
+        android:fontFamily="Arial Narrow"
+        android:textSize="17sp"
+        android:hint="@string/password"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:inputType="textPassword"
+        android:textColorHint="@color/colorGray"
+        android:imeOptions="actionDone"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/styleOkCancelButtonLayout">
+
+        <Button android:id="@+id/btnOK"
+            style="@style/styleOkButton"/>
+
+        <View style="@style/styleOkCancelButtonDivider"/>
+
+        <Button android:id="@+id/btnCancel"
+            style="@style/styleCancelButton"/>
+    </LinearLayout>
+</LinearLayout>

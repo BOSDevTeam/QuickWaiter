@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <TextView android:id="@+id/tvPrinting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:text="Printing......."
+                android:textColor="@color/colorGray" />
+
+            <Button android:id="@+id/btnPrint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRINT"
+                android:background="@drawable/button_red"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:padding="20dp"
+                android:visibility="invisible"/>
+
+            <LinearLayout android:id="@+id/btPrintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible">
+
+                <ImageView android:id="@+id/btPrintLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/shoplogo"/>
+
+                <TextView android:id="@+id/btPrintShopName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shop Name"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="20sp"/>
+                <TextView android:id="@+id/btPrintShopDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/btPrintSlipID"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="SlipID"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DataTime"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/btPrintTable"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Table"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintWaiter"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Waiter"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/btPrintHeaderItem"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:text="Item Name"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintHeaderQty"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Qty"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                    <TextView android:id="@+id/btPrintHeaderPrice"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"
+                        android:visibility="gone"/>
+                    <TextView android:id="@+id/btPrintHeaderAmount"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Amount"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorBlack">
+                </LinearLayout>
+                <LinearLayout android:id="@+id/layoutPrintList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                </LinearLayout>
+                <!--<ListView android:id="@+id/btPrintListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dividerHeight="1dp"></ListView>-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorBlack">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/btPrintSubTotal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sub_total"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintSubTotalAmt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/btPrintServiceCharges"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/service_charges"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintServiceChargesAmt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/btPrintCommercialTax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tax"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintCommercialTaxAmt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <TextView android:id="@+id/btPrintDiscount"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="FOC"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintDiscountAmt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#333333">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/btPrintGrandTotal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grand_total"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="20sp"/>
+                    <TextView android:id="@+id/btPrintGrandTotalAmt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="20sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <TextView android:id="@+id/btPrintPaid"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Paid"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintPaidAmt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Paid"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <TextView android:id="@+id/btPrintChange"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Change"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"/>
+                    <TextView android:id="@+id/btPrintChangeAmt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Change"
+                        android:textColor="@color/colorBlack"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:gravity="right"/>
+                </LinearLayout>
+
+                <TextView android:id="@+id/btPrintMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thank You!"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:layout_marginTop="60dp"/>
+
+                <TextView android:id="@+id/btPrintOtherMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thank You!"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/btPrintLayout2"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            android:background="@color/colorWhite"
+            android:visibility="invisible">
+
+            <ImageView android:id="@+id/btPrintLogo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/shoplogo"/>
+
+            <TextView android:id="@+id/btPrintShopName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Name"
+                android:textColor="@color/colorBlack"
+                android:padding="5dp"
+                android:textSize="20sp"/>
+            <TextView android:id="@+id/btPrintShopDesc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="@color/colorBlack"
+                android:padding="5dp"
+                android:textSize="17sp"/>
+            <TextView android:id="@+id/btPrintAddress2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textColor="@color/colorBlack"
+                android:padding="5dp"
+                android:textSize="17sp"/>
+            <TextView android:id="@+id/btPrintPhone2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textColor="@color/colorBlack"
+                android:padding="5dp"
+                android:textSize="17sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintSlipID2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="SlipID"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintDateTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DataTime"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintTable2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Table"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintWaiter2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Waiter"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintHeaderItem2"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="Item Name"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintHeaderQty2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Qty"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+                <TextView android:id="@+id/btPrintHeaderPrice2"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"
+                    android:visibility="gone"/>
+                <TextView android:id="@+id/btPrintHeaderAmount2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack">
+            </LinearLayout>
+            <LinearLayout android:id="@+id/layoutPrintList2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+            <!--<ListView android:id="@+id/btPrintListView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="1dp"></ListView>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintSubTotal2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Sub Total"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintSubTotalAmt2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Sub Total"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintCommercialTax2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Commercial Tax"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintCommercialTaxAmt2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Commercial Tax"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintServiceCharges2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Discount"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintServiceChargesAmt2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintDiscount2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="FOC"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintDiscountAmt2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/btPrintGrandTotal2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Total Amount"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="20sp"/>
+                <TextView android:id="@+id/btPrintGrandTotalAmt2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Grand Total"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <TextView android:id="@+id/btPrintPaid2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Paid"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintPaidAmt2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Paid"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <TextView android:id="@+id/btPrintChange2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Change"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"/>
+                <TextView android:id="@+id/btPrintChangeAmt2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Change"
+                    android:textColor="@color/colorBlack"
+                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/btPrintMessage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thank You!"
+                android:textColor="@color/colorBlack"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:layout_marginTop="100dp"/>
+
+            <TextView android:id="@+id/btPrintOtherMessage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thank You!"
+                android:textColor="@color/colorBlack"
+                android:padding="5dp"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

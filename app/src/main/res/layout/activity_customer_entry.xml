@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorAccent">
+        </LinearLayout>
+
+        <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView android:id="@+id/tvWaiterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp" />
+
+            <Button android:id="@+id/btnGetCustomerData"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_edit_customerinfo"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:background="@drawable/button_transparent"
+                android:layout_alignParentRight="true"
+                android:textStyle="italic"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:textAllCaps="false"/>
+        </RelativeLayout>
+        <LinearLayout android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tvLabelTable"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Table:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button android:id="@+id/btnChooseTable"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:hint="Choose Table"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:shadowDx="1.2"
+                    android:shadowDy="1.2"
+                    android:shadowRadius="3"
+                    android:shadowColor="@color/colorSoftBlack"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/colorPrimary"
+                    android:background="@drawable/button_gray"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView android:id="@+id/tvLabelDate"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Date:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button android:id="@+id/btnDate"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:shadowDx="1.2"
+                    android:shadowDy="1.2"
+                    android:shadowRadius="3"
+                    android:shadowColor="@color/colorSoftBlack"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_gray"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView android:id="@+id/tvLabelTime"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Time:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button android:id="@+id/btnTime"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:shadowDx="1.2"
+                    android:shadowDy="1.2"
+                    android:shadowRadius="3"
+                    android:shadowColor="@color/colorSoftBlack"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_gray"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutMan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp" >
+
+                <TextView android:id="@+id/tvLabelMan"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Man:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <EditText android:id="@+id/etMan"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:inputType="number"
+                    android:background="@color/colorGray"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutWomen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView android:id="@+id/tvLabelWomen"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Women:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText android:id="@+id/etWomen"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:inputType="number"
+                    android:background="@color/colorGray"
+                    android:padding="10dp" />
+
+            </LinearLayout>
+            <LinearLayout android:id="@+id/layoutChild"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView android:id="@+id/tvLabelChild"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Child:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText android:id="@+id/etChild"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:inputType="number"
+                    android:background="@color/colorGray"
+                    android:padding="10dp"  />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutCustomer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp" >
+
+                <TextView android:id="@+id/tvLabelCustomer"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Customer:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <EditText android:id="@+id/etCustomer"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:inputType="number"
+                    android:background="@color/colorGray"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <Button android:id="@+id/btnConfirm"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="CONFIRM"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:background="@drawable/button_red"
+                    android:layout_marginLeft="100dp"
+                    android:textStyle="bold"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,84 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView android:id="@+id/tvTranID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="TranID"
+            android:textSize="15sp"/>
+
+        <TextView android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="DateTime"
+            android:textSize="15sp"
+            android:layout_below="@id/tvTranID"/>
+
+        <TextView android:id="@+id/tvTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="Table"
+        android:textSize="15sp"
+        android:layout_below="@id/tvDateTime"/>
+
+        <TextView android:id="@+id/tvGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="Guest"
+            android:textSize="15sp"
+            android:layout_below="@id/tvTable"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+<!--<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView android:id="@+id/tvVouNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#33333F"
+        android:text="VouNo"
+        android:textSize="17sp"/>
+
+    <TextView android:id="@+id/tvDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#33333F"
+        android:text="DateTime"
+        android:textSize="17sp"/>
+
+    <TextView android:id="@+id/tvTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#33333F"
+        android:text="Table"
+        android:textSize="17sp"/>
+
+    <TextView android:id="@+id/tvGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#33333F"
+        android:text="Guest"
+        android:textSize="17sp"/>
+
+</LinearLayout>-->

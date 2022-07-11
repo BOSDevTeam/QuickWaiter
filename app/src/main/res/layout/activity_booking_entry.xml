@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bosictsolution.quickwaiter.BookingEntryActivity"
+    android:background="@color/colorPrimary">
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent">
+    </LinearLayout>
+
+        <TextView android:id="@+id/tvWaiterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waiter"
+            android:textSize="17sp"
+            android:textColor="@color/colorWhite"
+            android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorGray">
+
+                <TextView android:id="@+id/tvLabelDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Booking Date"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:padding="10dp"/>
+
+                <Button android:id="@+id/btnDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:background="@drawable/button_gray"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <EditText android:id="@+id/etGuestName"
+                style="@style/styleBookingEntryEditText"
+                android:hint="Guest Name"
+                android:layout_marginTop="10dp"/>
+
+            <EditText android:id="@+id/etPhone"
+                style="@style/styleBookingEntryEditText"
+                android:hint="Phone Number"
+                android:layout_marginTop="10dp"
+                android:inputType="phone"/>
+
+            <EditText android:id="@+id/etRemark"
+                style="@style/styleBookingEntryEditText"
+                android:hint="Remark"
+                android:layout_marginTop="10dp"
+                android:singleLine="false"
+                android:minHeight="100dp"
+                android:gravity="top"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorGray">
+
+                <TextView android:id="@+id/tvLabelTime"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Arrival Time"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:padding="10dp"/>
+
+                <Button android:id="@+id/btnTime"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:background="@drawable/button_gray"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <EditText android:id="@+id/etTotalPeople"
+                style="@style/styleBookingEntryEditText"
+                android:hint="Total People"
+                android:inputType="number"
+                android:layout_marginTop="10dp"/>
+
+            <EditText android:id="@+id/etPurpose"
+                style="@style/styleBookingEntryEditText"
+                android:hint="Purpose eg. wedding,birthday..."
+                android:layout_marginTop="10dp"/>
+
+            <Button android:id="@+id/btnChooseTable"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Choose Table"
+                android:background="@drawable/button_gray"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+    <Button android:id="@+id/btnBookingNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Book Now"
+        android:background="@drawable/button_red"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:padding="10dp"/>
+        </LinearLayout>
+</LinearLayout>
+</ScrollView>

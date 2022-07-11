@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent">
+    </LinearLayout>
+
+    <android.support.v4.widget.DrawerLayout android:id="@+id/sliderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!-- start list view items -->
+            <LinearLayout android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/colorApp">
+
+                <TextView  android:id="@+id/tvSubMenuName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_submenu"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+                <ListView android:id="@+id/lvItem"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:divider="@color/colorGray"
+                    android:dividerHeight="1dp">
+                </ListView>
+
+            </LinearLayout>
+
+            <!-- vertical divider -->
+            <LinearLayout android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray"></LinearLayout>
+
+            <!-- start order place -->
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:gravity="center">
+
+                    <ImageButton android:id="@+id/btnBarcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/barcode"
+                        android:background="@drawable/button_gray"
+                        android:visibility="gone"/>
+
+                    <TextView  android:id="@+id/tvWaiterName"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <TextView  android:id="@+id/tvTable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            android:text="Table - "/>
+
+                        <TextView  android:id="@+id/tvTableName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="19sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <Button android:id="@+id/btnSendOrder"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/button_sendorder"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:background="@drawable/button_red"/>
+
+                    <Button android:id="@+id/btnChooseTable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/button_choosetable"
+                        android:background="@drawable/button_red"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="10dp"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/lvOrder"
+                    android:background="@color/colorPrimary">
+                </ListView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <ExpandableListView android:id="@+id/android:list"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorApp"
+            android:layout_gravity="start">
+        </ExpandableListView>
+
+    </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

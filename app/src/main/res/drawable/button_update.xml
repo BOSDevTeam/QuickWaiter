@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="@android:integer/config_shortAnimTime">
+
+    <item android:drawable="@color/colorTransparent" android:state_focused="true" android:state_pressed="false"></item>
+    <item android:drawable="@drawable/button_update_pressed" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/button_update_default"></item>
+
+</selector>

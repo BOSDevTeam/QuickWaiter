@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@color/colorWhite">
+
+    <Spinner  android:id="@+id/spItemSubGroup"
+        style="@style/styleSetupDialogSpinner"/>
+
+    <EditText  android:id="@+id/etSubName"
+        style="@style/styleSetupDialogEditText"
+        android:hint="Sub Name"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
+    <EditText  android:id="@+id/etPrice"
+        style="@style/styleSetupDialogEditText"
+        android:hint="Sub Price"
+        android:inputType="number"
+        android:imeOptions="actionDone"/>
+
+    <LinearLayout style="@style/dialogBottom">
+
+        <Button android:id="@+id/btnClose"
+            style="@style/styleSetupDialogCloseButton"/>
+
+        <Button android:id="@+id/btnSave"
+            style="@style/styleSetupDialogSaveButton"/>
+
+    </LinearLayout>
+</LinearLayout>

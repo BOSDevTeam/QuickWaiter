@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText android:id="@+id/etQty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSoftBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:background="@color/colorSoftGray"
+        android:padding="10dp"
+        android:focusable="false"
+        android:layout_marginTop="5dp"
+        android:drawableRight="@mipmap/backspace"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:singleLine="true"/>
+
+    <ImageButton android:id="@+id/btnBackspace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:src="@mipmap/backspace"
+        android:background="@drawable/button_calculator"
+        android:visibility="gone"/>
+
+
+    <TableLayout android:id="@+id/layoutNumberr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:layout_marginTop="5dp">
+
+        <TableRow android:layout_height="wrap_content">
+
+            <Button android:id="@+id/btnOne"
+                style="@style/styleCalculatorButton"
+                android:text="1"/>
+
+            <Button android:id="@+id/btnTwo"
+                style="@style/styleCalculatorButton"
+                android:text="2"/>
+
+            <Button android:id="@+id/btnThree"
+                style="@style/styleCalculatorButton"
+                android:text="3"/>
+
+            <Button android:id="@+id/btnFour"
+                style="@style/styleCalculatorButton"
+                android:text="4"/>
+
+
+        </TableRow>
+
+        <TableRow android:layout_height="wrap_content">
+
+            <Button android:id="@+id/btnFive"
+                style="@style/styleCalculatorButton"
+                android:text="5"/>
+
+            <Button android:id="@+id/btnSix"
+                style="@style/styleCalculatorButton"
+                android:text="6"/>
+
+            <Button android:id="@+id/btnSeven"
+                style="@style/styleCalculatorButton"
+                android:text="7"/>
+
+            <Button android:id="@+id/btnEight"
+                style="@style/styleCalculatorButton"
+                android:text="8"/>
+
+
+        </TableRow>
+
+
+        <TableRow android:layout_height="wrap_content">
+
+            <Button android:id="@+id/btnNine"
+                style="@style/styleCalculatorButton"
+                android:text="9"/>
+
+            <Button android:id="@+id/btnZero"
+                style="@style/styleCalculatorButton"
+                android:text="0"/>
+
+            <Button android:id="@+id/btnPoint"
+                style="@style/styleCalculatorButton"
+                android:text="."/>
+
+            <Button android:id="@+id/btnClear"
+                style="@style/styleCalculatorButton"
+                android:text="C"/>
+
+        </TableRow>
+    </TableLayout>
+    <Button android:id="@+id/btnOK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textColor="@color/colorApp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/button_gray"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>

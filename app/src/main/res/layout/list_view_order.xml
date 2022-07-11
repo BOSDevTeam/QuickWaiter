@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/colorGray"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+    <TextView android:id="@+id/tvItemDescription"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+    <TextView android:id="@+id/tvItemQuantity"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="right"
+        android:textStyle="bold" />
+    <TextView android:id="@+id/tvSalePrice"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="right"
+        android:textStyle="bold" />
+    <TextView android:id="@+id/tvItemAmount"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="right"
+        android:textStyle="bold"
+        />
+</LinearLayout>

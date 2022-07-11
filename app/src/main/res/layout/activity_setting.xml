@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bosictsolution.quickwaiter.SettingActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvTitBasicFeature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Basic Features"
+            android:textColor="@color/colorApp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <ListView android:id="@+id/lvFeature"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSoftBlack"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/btnManageMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage Menu"
+            android:background="@drawable/button_gray"
+            android:padding="10dp"
+            android:textColor="@color/colorApp"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:textAllCaps="false"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSoftBlack"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvTitManageTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage Table"
+            android:textColor="@color/colorApp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <Switch android:id="@+id/swManageTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage Table"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"/>
+        <TextView android:id="@+id/tvEnDisManageTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disabled"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <TextView android:id="@+id/tvEditManageTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Manage Table"
+            android:textColor="@color/colorGray"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:background="@drawable/button_transparent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSoftBlack"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvTitBillPrint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Printing"
+            android:textColor="@color/colorApp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <Switch android:id="@+id/swBillPrint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Printing"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"/>
+        <TextView android:id="@+id/tvEnDisBillPrint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disabled"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <EditText android:id="@+id/etPrinterIP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Printer IP"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:background="@drawable/button_transparent"
+            android:padding="10dp" />
+        <Button android:id="@+id/btnOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="right"
+            android:enabled="false"
+            android:background="@drawable/button_transparent"
+            android:drawableLeft="@mipmap/tick"
+            android:padding="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <CheckBox android:id="@+id/chkPrintOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allow Print Order"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:enabled="false"/>
+            <CheckBox android:id="@+id/chkPrintBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Allow Print Bill"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:padding="10dp"
+                android:enabled="false"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSoftBlack"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvTitBarcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Barcode"
+            android:textColor="@color/colorApp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <Switch android:id="@+id/swBarcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Barcode"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"/>
+        <TextView android:id="@+id/tvEnDisBarcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disabled"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSoftBlack"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvTitItemSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Item Sub"
+            android:textColor="@color/colorApp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <Switch android:id="@+id/swItemSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Allow Item Sub"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"/>
+        <Button android:id="@+id/btnAddItemSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Item Sub"
+            android:background="@drawable/button_gray"
+            android:padding="10dp"
+            android:textColor="@color/colorApp"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:textAllCaps="false"
+            android:enabled="false"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSoftBlack"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvTitStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Time"
+            android:textColor="@color/colorApp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+        <Switch android:id="@+id/swStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Start Time in Order"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSoftBlack"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvTitOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:textColor="@color/colorApp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
+       <CheckBox android:id="@+id/chkFullLayout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Use Full Layout (only effect less than 8 inch tablet)"
+           android:textColor="@color/colorPrimary"
+           android:textSize="14sp"
+           android:padding="10dp"
+           android:visibility="gone"/>
+        <CheckBox android:id="@+id/chkAdvancedTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advanced Tax"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:padding="10dp"/>
+        <CheckBox android:id="@+id/chkHidePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hide SalePrice"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:padding="10dp"/>
+        <CheckBox android:id="@+id/chkOpenOrderWaiter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Order (Waiter)"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:visibility="gone"/>
+        <CheckBox android:id="@+id/chkOpenOrderKitchen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Order (Kitchen)"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:visibility="gone"/>
+        <CheckBox android:id="@+id/chkChangeTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Table"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <Button android:id="@+id/btnDeveloperMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Developer Mode"
+        android:background="@drawable/button_gray"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/>
+
+</LinearLayout>
+</ScrollView>

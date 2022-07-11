@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menuOpenOrderWaiter"
+        android:title="@string/menu_open_order_waiter"
+        android:visible="false"/>
+
+    <item android:id="@+id/menuOpenOrderKitchen"
+        android:title="@string/menu_open_order_kitchen"
+        android:visible="false"/>
+
+    <item android:id="@+id/menuChangeTable"
+        android:title="@string/menu_change_table"
+        android:visible="false"/>
+
+    <item android:id="@+id/menuServerProperty"
+        android:title="@string/menu_server_property"/>
+
+    <item android:id="@+id/menuLogout"
+        android:title="@string/menu_logout"/>
+
+</menu>

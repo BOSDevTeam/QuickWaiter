@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/styleSetupListLayout">
+
+    <TextView android:id="@+id/tvItemID"
+        style="@style/styleSetupListTextView"/>
+
+    <TextView android:id="@+id/tvItemName"
+        style="@style/styleSetupListTextView"/>
+
+    <TextView android:id="@+id/tvSubMenuName"
+        style="@style/styleSetupListTextView"/>
+
+    <ImageButton android:id="@+id/btnEdit"
+        style="@style/styleSetupListImageEditButton"/>
+
+</LinearLayout>

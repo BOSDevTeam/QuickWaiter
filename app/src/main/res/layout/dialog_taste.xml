@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_taste_dialog">
+
+    <LinearLayout  android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView android:id="@+id/tvTaste"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/colorSoftBlack"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:background="@color/colorSoftGray"/>
+
+        <Button android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/colorSoftBlack"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Clear"
+            android:layout_marginLeft="10dp"
+            android:textAllCaps="false"></Button>
+    </LinearLayout>
+
+    <TextView android:id="@+id/tvTastePrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorApp"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:inputType="numberDecimal"/>
+
+    <GridView android:id="@+id/gvTaste"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="5"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"></GridView>
+
+    <LinearLayout style="@style/styleOkCancelButtonLayout">
+
+        <Button android:id="@+id/btnOK"
+            style="@style/styleOkButton"></Button>
+
+        <View style="@style/styleOkCancelButtonDivider"/>
+
+        <Button android:id="@+id/btnCancel"
+            style="@style/styleCancelButton"></Button>
+
+    </LinearLayout>
+</LinearLayout>

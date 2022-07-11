@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="5dp"
+    android:background="@color/colorWhite">
+
+    <LinearLayout android:id="@+id/layoutPrint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="10dp"
+        android:paddingRight="17dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:id="@+id/tvLblTable"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Table"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textSize="17sp" />
+            <TextView android:id="@+id/tvLblUser"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Waiter"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+        <TextView android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="@color/colorPrimaryDark"
+            android:padding="5dp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:textSize="17sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:id="@+id/tvTable"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Table"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+            <TextView android:id="@+id/tvUser"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Waiter"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+            <TextView android:id="@+id/tvTime"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:gravity="left"
+                android:textSize="17sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:id="@+id/tvHeaderItem"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Item"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+            <TextView android:id="@+id/tvHeaderQty"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="Qty"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark">
+        </LinearLayout>
+        <LinearLayout android:id="@+id/layoutPrintList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginBottom="50dp">
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+

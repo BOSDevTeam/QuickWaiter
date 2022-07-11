@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bosictsolution.quickwaiter">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo2"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".AddItemSubActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".ItemSubSetupActivity"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".StartActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SettingActivity"
+            android:label="Setting"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".TableActivity"
+            android:label="Table"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".CustomerEntryActivity"
+            android:label="Customer Data Entry"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ViewOrderActivity"
+            android:label="Order Items"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".FeatureActivity"
+            android:label="Feature Setting"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".BookingListActivity"
+            android:label="Booking List"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".BookingEntryActivity"
+            android:label="Booking Entry"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".OpenOrderWaiterActivity"
+            android:label="Open Order (Waiter)"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".OpenOrderKitchenActivity"
+            android:label="Open Order (Kitchen)"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".BillActivity"
+            android:label="Bill"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".PrintBillActivity"
+            android:label="Print"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ManageTableActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".PrintOrderActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".CustomerListActivity"
+            android:label="Customer List"
+            android:screenOrientation="landscape" />
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+</manifest>

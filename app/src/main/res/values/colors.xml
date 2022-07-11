@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#292728</color>
+    <color name="colorPrimaryDark">#201e1f</color>
+    <color name="colorAccent">#f6ad03</color>
+    <color name="colorApp">#b20837</color>
+
+    <color name="colorTransparent">@android:color/transparent</color>
+    <color name="colorMirror">#CC292728</color>
+    <color name="colorGray">#dedbdb</color>
+    <color name="colorSoftGray">#f0ecec</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorSoftBlack">#34343a</color>
+
+    <color name="colorInfo">#4889dc</color>
+    <color name="colorSuccess">#2eac4c</color>
+    <color name="colorWarning">#ecc442</color>
+    <color name="colorError">#e62552</color>
+
+    <color name="colorBookingTable">#cc151e</color>
+    <color name="colorEmptyTable">#c4ad32</color>
+    <color name="colorOccupiedTable">#1463c9</color>
+
+</resources>

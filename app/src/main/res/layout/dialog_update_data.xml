@@ -1,0 +1,180 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout  android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <TextView android:id="@+id/tvLabelChooseUpdateTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:text="Choose Table"
+            android:textSize="17sp"/>
+
+        <CheckBox android:id="@+id/chkAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_all"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+    </RelativeLayout>
+
+    <LinearLayout  android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorGray">
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    <LinearLayout  android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <CheckBox android:id="@+id/chkWaiter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_waiter"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_table"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkTableType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_tabletype"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_item"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkSubmenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_submenu"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkMainmenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_mainmenu"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkTaste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_taste"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkTasteMulti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_taste_multi"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkSystemsetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_systemsetting"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkFeatureSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_featuresetting"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkPrinterSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_printersetting"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkSType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_stype"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+        <CheckBox android:id="@+id/chkSlipFormat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_slip_format"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:textSize="17sp"></CheckBox>
+
+    </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout style="@style/styleOkCancelButtonLayout">
+
+        <Button android:id="@+id/btnOk"
+            style="@style/styleOkButton"/>
+
+        <View style="@style/styleOkCancelButtonDivider"/>
+
+        <Button android:id="@+id/btnCancel"
+            style="@style/styleCancelButton"/>
+
+    </LinearLayout>
+
+</LinearLayout>

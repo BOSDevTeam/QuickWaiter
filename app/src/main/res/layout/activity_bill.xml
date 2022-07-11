@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bosictsolution.quickwaiter.BillActivity"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent">
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2.5"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView android:id="@+id/tvBillTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Table A1 - Order #"
+            android:textSize="15sp"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorSoftBlack"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView android:id="@+id/tvHeaderItemName"
+                style="@style/styleBillListHeader"
+                android:text="Item"
+                android:layout_width="0dp"
+                android:layout_weight="1"/>
+
+            <TextView android:id="@+id/tvHeaderQuantity"
+                style="@style/styleBillListHeader"
+                android:text="Qty"
+                android:gravity="right"
+                android:layout_width="50dp"
+                />
+            <!--android:layout_marginRight="40dp"-->
+
+            <TextView android:id="@+id/tvHeaderPrice"
+                style="@style/styleBillListHeader"
+                android:text="Price"
+                android:gravity="right"
+                android:layout_width="150dp"
+                android:visibility="gone"/>
+
+            <TextView android:id="@+id/tvHeaderAmount"
+                style="@style/styleBillListHeader"
+                android:text="Amount(with dis)"
+                android:gravity="right"
+                android:layout_width="200dp"
+                android:layout_marginRight="40dp"/>
+
+        </LinearLayout>
+
+        <ListView android:id="@+id/lvBillItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:divider="@color/colorPrimary"
+            android:dividerHeight="10dp"></ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorSoftBlack">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:padding="5dp">
+
+            <TableRow android:visibility="gone">
+                <TextView android:id="@+id/tvDiscountPercent"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="Dis (%)"/>
+
+                <EditText android:id="@+id/etDiscountPercent"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:inputType="number"/>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp"
+                android:visibility="gone">
+                <TextView android:id="@+id/tvDiscountAmount"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="Dis Amt"/>
+
+                <EditText android:id="@+id/etDiscountAmount"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:inputType="numberDecimal"/>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp"
+                android:visibility="gone">
+                <TextView style="@style/styleBillPaymentLabel"/>
+
+                <Button android:id="@+id/btnDiscountCalculate"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:text="OK"/>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView android:id="@+id/tvLabelSubTotal"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="@string/sub_total"/>
+
+                <TextView android:id="@+id/tvAmountSubTotal"
+                    style="@style/styleBillPaymentLabel"
+                    android:gravity="right"/>
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView android:id="@+id/tvLabelCharges"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="@string/service_charges"/>
+
+                <TextView android:id="@+id/tvAmountCharges"
+                    style="@style/styleBillPaymentLabel"
+                    android:gravity="right"/>
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView android:id="@+id/tvLabelTax"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="@string/tax"/>
+
+                <TextView android:id="@+id/tvAmountTax"
+                    style="@style/styleBillPaymentLabel"
+                    android:gravity="right"/>
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp"
+                android:visibility="gone">
+
+                <TextView android:id="@+id/tvLabelDiscount"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="Discount"/>
+
+                <TextView android:id="@+id/tvAmountDiscount"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="0"
+                    android:gravity="right"/>
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView android:id="@+id/tvLabelGrandTotal"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="@string/grand_total"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorApp"/>
+
+                <TextView android:id="@+id/tvAmountGrandTotal"
+                    style="@style/styleBillPaymentLabel"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorApp"
+                    android:gravity="right"/>
+
+            </TableRow>
+            <TableRow android:layout_marginTop="5dp"
+                android:visibility="gone">
+
+                <TextView android:id="@+id/tvLabelPaidTotal"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="Paid" />
+
+                <EditText android:id="@+id/etAmountPaidTotal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:inputType="numberDecimal"/>
+
+            </TableRow>
+            <TableRow android:layout_marginTop="5dp"
+                android:visibility="gone">
+                <TextView style="@style/styleBillPaymentLabel"/>
+
+                <Button android:id="@+id/btnPaidCalculate"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:text="OK"/>
+            </TableRow>
+            <TableRow android:layout_marginTop="5dp"
+                android:visibility="gone">
+
+                <TextView android:id="@+id/tvLabelChangeTotal"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="Change" />
+
+                <TextView android:id="@+id/tvAmountChangeTotal"
+                    style="@style/styleBillPaymentLabel"
+                    android:text="0"/>
+
+            </TableRow>
+        </TableLayout>
+
+        <Button android:id="@+id/btnPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="Pay"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:background="@drawable/button_red"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@mipmap/pay"/>
+
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

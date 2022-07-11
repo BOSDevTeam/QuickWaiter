@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:gravity="center">
+
+    <TextView android:id="@+id/tvGroupName"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:text="Group Name"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp" />
+
+    <TextView android:id="@+id/tvSubTitle"
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_height="wrap_content"
+        android:text="Sub Title"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp" />
+
+    <TextView android:id="@+id/tvCheckType"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Check Type"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp" />
+
+    <Button android:id="@+id/btnSubItem"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Sub Item"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textAllCaps="false"/>
+
+    <CheckBox android:id="@+id/chkSelect"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layoutDirection="rtl"/>
+
+</LinearLayout>
