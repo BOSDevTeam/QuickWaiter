@@ -295,6 +295,7 @@ public class StartActivity extends AppCompatActivity {
         db.insertSetting("Print Bill");
         db.insertSetting("Hide SalePrice");
         db.insertSetting("ItemSub");
+        db.insertSetting(AppConstant.HideCommercialTax);
         db.insertSetting(AppConstant.StartTime);
     }
 

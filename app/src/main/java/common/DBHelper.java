@@ -254,6 +254,11 @@ public class DBHelper extends SQLiteOpenHelper  {
         Cursor cur=db.rawQuery("select isAllow from Setting where SettingName='"+name+"'",null);
         return cur;
     }
+    public Cursor getHideCommercialTaxSetting() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery("select isAllow from Setting where SettingName='" + AppConstant.HideCommercialTax + "'", null);
+        return cur;
+    }
     //Bill Print
     public boolean insertBillPrinter(String printerIP){
         SQLiteDatabase db=this.getWritableDatabase();

@@ -55,7 +55,7 @@ public class OrderListAdapter extends BaseAdapter {
     static class ViewHolder {
         TextView tvItemName, tvTaste, tvPNumber, tvTastePrice, tvItemSub, tvTasteMulti;
         EditText etQuantity;
-        ImageButton imgbtnPlus, imgbtnMinus, imgbtnCancel, imgbtnCalculator, imgbtnTaste, imgbtnTasteMulti, imgbtnPNumber;
+        ImageButton imgbtnPlus, imgbtnMinus, imgbtnCalculator, imgbtnTaste, imgbtnTasteMulti, imgbtnPNumber,btnMore;
         View row;
     }
 
@@ -77,7 +77,8 @@ public class OrderListAdapter extends BaseAdapter {
             holder.imgbtnPlus = (ImageButton) row.findViewById(R.id.imgbtnPlus);
             holder.imgbtnMinus = (ImageButton) row.findViewById(R.id.imgbtnMinus);
             holder.imgbtnCalculator = (ImageButton) row.findViewById(R.id.imgbtnCalculator);
-            holder.imgbtnCancel = (ImageButton) row.findViewById(R.id.imgbtnCancel);
+            //holder.imgbtnCancel = (ImageButton) row.findViewById(R.id.imgbtnCancel);
+            holder.btnMore = (ImageButton) row.findViewById(R.id.btnMore);
             holder.imgbtnTaste = (ImageButton) row.findViewById(R.id.imgbtnTaste);
             holder.imgbtnTasteMulti = (ImageButton) row.findViewById(R.id.imgbtnTasteMulti);
             holder.imgbtnPNumber = (ImageButton) row.findViewById(R.id.imgbtnPNumber);
@@ -96,7 +97,7 @@ public class OrderListAdapter extends BaseAdapter {
 
         holder.tvItemName.setText(lstTransactionData.get(position).getItemName());
 
-        if (lstTransactionData.get(position).getAllItemSub().length() != 0) {
+        if (lstTransactionData.get(position).getAllItemSub() != null && lstTransactionData.get(position).getAllItemSub().length() != 0) {
             holder.tvItemSub.setVisibility(View.VISIBLE);
             holder.tvItemSub.setText(lstTransactionData.get(position).getAllItemSub());
         } else holder.tvItemSub.setVisibility(View.GONE);
@@ -147,12 +148,22 @@ public class OrderListAdapter extends BaseAdapter {
             }
         });
 
-        holder.imgbtnCancel.setOnClickListener(new View.OnClickListener() {
+       /* holder.imgbtnCancel.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 if (orderButtonClickListener != null) {
                     orderButtonClickListener.onCancelButtonClickListener(position, holder.row);
+                }
+            }
+        });*/
+
+        holder.btnMore.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                if (orderButtonClickListener != null) {
+                    orderButtonClickListener.onMoreButtonClickListener(position, holder.row);
                 }
             }
         });

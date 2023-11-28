@@ -15,10 +15,12 @@
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/activity_view_order.xml" value="0.20416666666666666" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/dg_sale_item_sub.xml" value="0.25" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/dg_start_time.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/dialog_confirm.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/dialog_more_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/dialog_server_property.xml" value="0.20416666666666666" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/dialog_start_end_time.xml" value="0.18177083333333333" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/list_customer.xml" value="0.20416666666666666" />
-        <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/list_order.xml" value="0.1640625" />
+        <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/list_order.xml" value="0.33" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/list_print_order_child.xml" value="0.18072916666666666" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/list_print_order_parent.xml" value="0.18072916666666666" />
         <entry key="..\:/Workspace/1-Restaurant System/QuickWaiter Project/QuickWaiter(General Version)/app/src/main/res/layout/list_table_type.xml" value="0.20416666666666666" />

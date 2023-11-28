@@ -373,6 +373,13 @@
             android:textSize="14sp"
             android:padding="10dp"
             android:visibility="gone"/>
+        <CheckBox android:id="@+id/chkHideTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hide_commercial_tax"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:padding="10dp"/>
     </LinearLayout>
 
     <Button android:id="@+id/btnDeveloperMode"

@@ -47,7 +47,7 @@ public class SettingActivity extends AppCompatActivity implements FeatureCheckLi
     ListView lvFeature, lvMainMenu;
     TextView tvTitBasicFeature, tvTitManageTable, tvTitBillPrint, tvTitBarcode, tvTitOther, tvEnDisManageTable, tvEnDisBillPrint, tvEnDisBarcode, tvEditManageTable;
     Switch swManageTable, swBillPrint, swBarcode, swItemSub,swStartTime;
-    CheckBox chkFullLayout, chkOpenOrderWaiter, chkOpenOrderKitchen, chkChangeTable, chkAdvancedTax, chkPrintOrder, chkPrintBill, chkHidePrice;
+    CheckBox chkFullLayout, chkOpenOrderWaiter, chkOpenOrderKitchen, chkChangeTable, chkAdvancedTax, chkPrintOrder, chkPrintBill, chkHidePrice,chkHideTax;
     EditText etPrinterIP;
 
     private DBHelper db;
@@ -271,6 +271,16 @@ public class SettingActivity extends AppCompatActivity implements FeatureCheckLi
                 }
             }
         });
+        chkHideTax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chkHideTax.isChecked()) {
+                    db.updateSettingByName(AppConstant.HideCommercialTax, 1);
+                } else {
+                    db.updateSettingByName(AppConstant.HideCommercialTax, 0);
+                }
+            }
+        });
         btnAddItemSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -351,6 +361,7 @@ public class SettingActivity extends AppCompatActivity implements FeatureCheckLi
         chkChangeTable = (CheckBox) findViewById(R.id.chkChangeTable);
         chkAdvancedTax = (CheckBox) findViewById(R.id.chkAdvancedTax);
         chkHidePrice = (CheckBox) findViewById(R.id.chkHidePrice);
+        chkHideTax = (CheckBox) findViewById(R.id.chkHideTax);
         etPrinterIP = (EditText) findViewById(R.id.etPrinterIP);
         btnOK = (Button) findViewById(R.id.btnOK);
         chkPrintOrder = (CheckBox) findViewById(R.id.chkPrintOrder);
@@ -470,6 +481,12 @@ public class SettingActivity extends AppCompatActivity implements FeatureCheckLi
                     chkHidePrice.setChecked(true);
                 } else {
                     chkHidePrice.setChecked(false);
+                }
+            }else if (name.equals(AppConstant.HideCommercialTax)) {
+                if (allow == 1) {
+                    chkHideTax.setChecked(true);
+                } else {
+                    chkHideTax.setChecked(false);
                 }
             }
         }

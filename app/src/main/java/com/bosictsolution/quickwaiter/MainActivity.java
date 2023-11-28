@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
     public static int choosed_table_id;
     public static String choosed_table_name,start_time;
     public static boolean isEmptyTable;
-    int waiter_id;
+    int waiter_id,SYSID;
     String waiter_name,insert_order;
     static boolean isTasteEdit;
     int warning_message=1,error_message=2,success_message=3,info_message=4;
@@ -647,9 +648,10 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
     }
 
     public class SendOrder extends AsyncTask<String,String,String> {
-        String msg = "", orderItemID, orderItemName, orderAllTaste = "", orderItemNameTaste, insert_multi_taste,orderMultiTaste;
+        String msg = "", orderItemID, orderItemName, orderAllTaste = "", orderItemNameTaste, insert_multi_taste, orderMultiTaste, normalTasteWithoutParcel = "";
         boolean isSuccess = false;
-        int msg_type, tranid, orderSysID, orderCounterID, orderSType, orderIntQuantity, orderNoDis, orderItemDis, orderPNumber, allowPrint;
+        int msg_type, tranid, orderSysID, orderCounterID, orderSType, orderIntQuantity, orderNoDis, orderItemDis, orderPNumber, allowPrint, parcel = 0;
+        ;
         float floatQty, orderFloatQuantity;
         double orderAmount, orderPrice;
 
@@ -687,7 +689,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
                         st_insert.execute(insert_autosend);
                     }
 
-                    if(db.allowStartTimeSetting() && isEmptyTable==true){
+                    if (db.allowStartTimeSetting() && isEmptyTable == true) {
                         String update_mastersale = "UPDATE InvMasterSaleTemp SET StartTime='" + start_time + "' WHERE Tranid=" + tranid;
                         Statement st_update_mastersale = con.createStatement();
                         st_update_mastersale.execute(update_mastersale);
@@ -696,6 +698,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
                     insert_order = "";
                     insert_multi_taste = "";
                     for (int i = 0; i < lstOrderItem.size(); i++) {
+                        parcel = 0;
                         orderSysID = lstOrderItem.get(i).getSysid();
                         orderCounterID = lstOrderItem.get(i).getCounterID();
                         orderItemID = lstOrderItem.get(i).getItemid();
@@ -707,17 +710,60 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
                         else if (lstOrderItem.get(i).getTaste().length() == 0 && lstOrderItem.get(i).getTasteMulti().length() != 0)
                             orderAllTaste = lstOrderItem.get(i).getTasteMulti();
                         else orderAllTaste = "";
+
+                        if (lstOrderItem.get(i).getTaste().contains(",")) {
+                            String[] arr = lstOrderItem.get(i).getTaste().split(",");
+                            for (int t = 0; t < arr.length; t++) {
+                                if (arr[t].startsWith("T") || arr[t].startsWith("t")) {
+                                    parcel = 1;
+                                    break;
+                                }
+                            }
+                        } else {
+                            if (lstOrderItem.get(i).getTaste().startsWith("T") || lstOrderItem.get(i).getTaste().startsWith("t")) {
+                                parcel = 1;
+                            }
+                        }
+
+                        if (orderAllTaste.contains("Parcel")) parcel = 1;
+
                         if (allowNotPairItemNameAndTaste == 0) {
                             if (orderAllTaste.length() != 0) {
-                                orderItemNameTaste = lstOrderItem.get(i).getItemName() + "(" + orderAllTaste + ")";
-                                orderAllTaste="";
+                                String taste = "";
+                                if (orderAllTaste.contains("Parcel"))
+                                    taste += "Parcel,";
+                                if (lstOrderItem.get(i).getTasteMulti().length() != 0)
+                                    taste += lstOrderItem.get(i).getTasteMulti();
+                                if (taste.endsWith(","))
+                                    taste = taste.substring(0, taste.length() - 1);
+                                if (taste.length() != 0)
+                                    orderItemNameTaste = lstOrderItem.get(i).getItemName() + "(" + taste + ")";
+                                else orderItemNameTaste = lstOrderItem.get(i).getItemName();
+                                //orderItemNameTaste = lstOrderItem.get(i).getItemName() + "(" + orderAllTaste + ")";
+                                orderAllTaste = "";
                             } else {
                                 orderItemNameTaste = lstOrderItem.get(i).getItemName();
+                            }
+
+                            if (lstOrderItem.get(i).getTaste().contains(",")) {
+                                String[] arr = lstOrderItem.get(i).getTaste().split(",");
+                                for (int t = 0; t < arr.length; t++) {
+                                    if (!arr[t].equals("Parcel")) {
+                                        normalTasteWithoutParcel += arr[t] + ",";
+                                    }
+                                }
+                                normalTasteWithoutParcel = normalTasteWithoutParcel.substring(0, normalTasteWithoutParcel.length() - 1);
+                            } else if (lstOrderItem.get(i).getTaste().equals("Parcel")) {
+                                normalTasteWithoutParcel = "";
+                            } else {
+                                normalTasteWithoutParcel = lstOrderItem.get(i).getTaste();
                             }
                         } else {
                             orderItemNameTaste = lstOrderItem.get(i).getItemName();
                         }
-                        orderMultiTaste=lstOrderItem.get(i).getTasteMulti();
+
+                        orderMultiTaste = lstOrderItem.get(i).getTasteMulti();
+                        if (orderMultiTaste.length() != 0) parcel = 1;
                         orderPrice = lstOrderItem.get(i).getSalePrice() + lstOrderItem.get(i).getTastePrice();
                         orderSType = lstOrderItem.get(i).getStype();
                         orderNoDis = lstOrderItem.get(i).getNoDis();
@@ -727,14 +773,14 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
                         if (floatQty == Math.round(floatQty)) {
                             orderIntQuantity = Integer.parseInt(lstOrderItem.get(i).getStringQty());
                             orderAmount = orderPrice * orderIntQuantity;
-                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste) VALUES ";
-                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderIntQuantity + "," + orderPrice + "," + orderAmount + "," + orderIntQuantity + ",'" + orderTableName + "','" + currentTime + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber + ",'" + orderMultiTaste + "'";
+                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste,BDis) VALUES ";
+                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderIntQuantity + "," + orderPrice + "," + orderAmount + "," + orderIntQuantity + ",'" + orderTableName + "','" + normalTasteWithoutParcel + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber + ",'" + orderMultiTaste + "'," + parcel;
                             insert_order = insert_order + " " + sql_query + "(" + sql_data + ")";
                         } else {
                             orderFloatQuantity = floatQty;
                             orderAmount = orderPrice * orderFloatQuantity;
-                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste) VALUES ";
-                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderFloatQuantity + "," + orderPrice + "," + orderAmount + "," + orderFloatQuantity + ",'" + orderTableName + "','" + currentTime + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber+ ",'" + orderMultiTaste + "'";
+                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste,BDis) VALUES ";
+                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderFloatQuantity + "," + orderPrice + "," + orderAmount + "," + orderFloatQuantity + ",'" + orderTableName + "','" + normalTasteWithoutParcel + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber + ",'" + orderMultiTaste + "'," + parcel;
                             insert_order = insert_order + " " + sql_query + "(" + sql_data + ")";
                         }
 
@@ -1049,6 +1095,11 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
     }
 
     @Override
+    public void onMoreButtonClickListener(int position, View view) {
+
+    }
+
+    @Override
     public void onTasteButtonClickListener(int position,TextView textView) {
         String curTaste = lstOrderItem.get(position).getTaste();
         isTasteEdit = true;
@@ -1282,6 +1333,12 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
         orderListAdapter=new OrderListAdapter(this,lstOrderItem);
         lvOrder.setAdapter(orderListAdapter);
         orderListAdapter.setOnOrderButtonClickListener(this);
+
+        if(lstItemData.get(position).getStype() == 5){
+            SYSID=lstItemData.get(position).getSysid();
+            GetPackageItem getPackageItem=new GetPackageItem();
+            getPackageItem.execute("");
+        }
     }
 
     private void placeOrderByBarcode(List<ItemData> lstItemData){
@@ -1467,7 +1524,6 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
     /**
      * Dialogs
      */
-
     private void showCalculatorDialog(final int position,final EditText etOrderQty,final TextView tvPNumber,final int type){
         LayoutInflater li=LayoutInflater.from(context);
         View view=li.inflate(R.layout.dialog_calculator, null);
@@ -2095,6 +2151,88 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
         }
         else {
             placeOrder(position,"","",0);
+        }
+    }
+
+    /**
+     * Package Item
+     */
+    private void placePackageItem(List<TransactionData> lstPackageItem){
+        for(int i=0;i<lstPackageItem.size();i++){
+            TransactionData data=new TransactionData();
+            data.setItemid(lstPackageItem.get(i).getItemid());
+            data.setItemName(lstPackageItem.get(i).getItemName());
+            data.setSysid(lstPackageItem.get(i).getSysid());
+            data.setStype(lstPackageItem.get(i).getStype());
+            data.setSalePrice(lstPackageItem.get(i).getSalePrice());
+            data.setIntegerQty(lstPackageItem.get(i).getIntegerQty());
+            data.setStringQty(String.valueOf(lstPackageItem.get(i).getIntegerQty()));
+
+            data.setCounterID(0);
+            data.setIncomeid(0);
+            data.setTaste("");
+            data.setTasteMulti("");
+            data.setNoDis(0);
+            data.setItemDis(0);
+            data.setTastePrice(0);
+            data.setAllItemSub("");
+
+            lstOrderItem.add(data);
+            orderListAdapter=new OrderListAdapter(this,lstOrderItem);
+            lvOrder.setAdapter(orderListAdapter);
+            orderListAdapter.setOnOrderButtonClickListener(this);
+        }
+    }
+
+    public class GetPackageItem extends AsyncTask<String,String,String> {
+        String msg="";
+        int msg_type;
+        boolean isSuccess=false;
+        List<TransactionData> lstPackageItem=new ArrayList<>();
+        @Override
+        protected String doInBackground(String... params){
+            try{
+                Connection con=serverconnection.CONN();
+                if(con==null){
+                    msg="Error in connection with SQL server";
+                    msg_type=error_message;
+                }else{
+                    String procedure="exec [PrcGetPackageItem] @SysID=" + SYSID;
+                    Statement st=con.createStatement();
+                    ResultSet rs= st.executeQuery(procedure);
+                    while(rs.next()){
+                        TransactionData data=new TransactionData();
+                        data.setSysid(rs.getInt(1));
+                        data.setIntegerQty(rs.getInt(2));
+                        data.setSalePrice(rs.getDouble(3));
+                        data.setItemName(rs.getString(4));
+                        data.setStype(rs.getInt(5));
+                        data.setItemid(rs.getString(6));
+                        lstPackageItem.add(data);
+                    }
+                    isSuccess=true;
+                }
+            }catch(SQLException e){
+                msg=e.getMessage();
+                msg_type=error_message;
+            }
+            return msg;
+        }
+
+        @Override
+        protected void onPreExecute(){
+            progDialog.show();
+            progDialog.setMessage("Placing Package Items..");
+        }
+
+        @Override
+        protected void onPostExecute(String r){
+            progDialog.hide();
+            if(isSuccess) {
+                placePackageItem(lstPackageItem);
+            }else{
+                showMessage(msg_type,r);
+            }
         }
     }
 

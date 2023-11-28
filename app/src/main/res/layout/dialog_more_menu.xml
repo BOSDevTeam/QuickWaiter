@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button android:id="@+id/btnAddTaste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tax"/>
+
+    <TextView  android:id="@+id/tvConfirmMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="@color/colorSoftBlack"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="Are you sure?"/>
+
+    <LinearLayout style="@style/styleOkCancelButtonLayout">
+
+        <Button android:id="@+id/btnOK"
+            style="@style/styleOkButton"/>
+
+        <View style="@style/styleOkCancelButtonDivider"/>
+
+        <Button android:id="@+id/btnCancel"
+            style="@style/styleCancelButton"/>
+    </LinearLayout>
+</LinearLayout>

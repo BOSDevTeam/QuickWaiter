@@ -87,4 +87,5 @@
     <string name="allow_multi">Allow Multi Check</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
+    <string name="hide_commercial_tax">Hide Commercial Tax</string>
 </resources>

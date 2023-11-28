@@ -126,14 +126,22 @@
 
         </LinearLayout>
 
-        <ImageButton android:id="@+id/imgbtnCancel"
+        <ImageButton android:id="@+id/btnMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_horiz_24"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"/>
+
+      <!--  <ImageButton android:id="@+id/imgbtnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/cancel"
             android:background="@drawable/button_transparent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"/>-->
 
 
     </LinearLayout>

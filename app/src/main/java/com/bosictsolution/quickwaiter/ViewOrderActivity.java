@@ -172,7 +172,8 @@ public class ViewOrderActivity extends AppCompatActivity {
                     msg_type=error_message;
                     isSuccess=false;
                 }else{
-                    String get_order="select distinct(Name),sum(Qty),sum(CAST(ROUND(Amount, 2) AS MONEY)),ItemDis,SalePrice,[SID],isnull(Tastes,'') AS Tastes from InvTranSaleTemp where ItemDeleted=0 AND TableID="+ tableid +" group by Name,ItemDis,SalePrice,[SID],Tastes order by [SID]";
+                    //String get_order="select distinct(Name),sum(Qty),sum(CAST(ROUND(Amount, 2) AS MONEY)),ItemDis,SalePrice,[SID],isnull(Tastes,'') AS Tastes from InvTranSaleTemp where ItemDeleted=0 AND TableID="+ tableid +" group by Name,ItemDis,SalePrice,[SID],Tastes order by [SID]";
+                    String get_order="select distinct(Name),sum(Qty),sum(CAST(ROUND(Amount, 2) AS MONEY)),ItemDis,SalePrice,isnull(Tastes,'') AS Tastes,isnull(UnitName,'') AS NormalTastesWithoutParcel from InvTranSaleTemp where ItemDeleted=0 AND TableID="+ tableid +" group by Name,ItemDis,SalePrice,Tastes,UnitName";
                     Statement st=con.createStatement();
                     ResultSet rs= st.executeQuery(get_order);
                     if(rs.next()){
@@ -196,7 +197,7 @@ public class ViewOrderActivity extends AppCompatActivity {
                                 discount+=curDiscount*floatQty;
                                 data.setAmount(rs.getDouble(3)-(curDiscount*floatQty));
                             }
-                            data.setAllTaste(rs.getString(7));
+                            data.setAllTaste(rs.getString(6)+rs.getString(7));
                             lstViewOrder.add(data);
                         }while(rs.next());
                         isSuccess=true;
@@ -240,12 +241,20 @@ public class ViewOrderActivity extends AppCompatActivity {
         }
         chargesAmount = (chargesPercent * subTotal) / 100; //get charges amount
 
-        Cursor cur = db.getAdvancedTaxSetting();
-        if (cur.moveToFirst()) {
-            if (cur.getInt(0) == 0) { // normal tax
-                taxAmount = (taxPercent * subTotal) / 100;  //get normal tax amount
-            } else { // advanced tax
-                taxAmount = (taxPercent * (subTotal + chargesAmount)) / 100;
+        Cursor cur=db.getHideCommercialTaxSetting();
+        if(cur.moveToFirst()){
+            if (cur.getInt(0) == 1) { // hide commercial tax
+                tvLabelTax.setVisibility(View.GONE);
+                tvTax.setVisibility(View.GONE);
+            }else{
+                cur = db.getAdvancedTaxSetting();
+                if (cur.moveToFirst()) {
+                    if (cur.getInt(0) == 0) { // normal tax
+                        taxAmount = (taxPercent * subTotal) / 100;
+                    } else { // advanced tax
+                        taxAmount = (taxPercent * (subTotal + chargesAmount)) / 100;
+                    }
+                }
             }
         }
 
