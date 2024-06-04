@@ -2,31 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <Button android:id="@+id/btnAddTaste"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tax"/>
+        android:text="@string/add_taste"
+        android:background="@drawable/button_transparent"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorSoftBlack"
+        android:drawableLeft="@drawable/ic_baseline_add_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/colorAccent"/>
 
-    <TextView  android:id="@+id/tvConfirmMessage"
+    <View style="@style/DividerGray"/>
+
+    <Button android:id="@+id/btnRemoveItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:text="@string/remove_item"
+        android:background="@drawable/button_transparent"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
         android:textColor="@color/colorSoftBlack"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
-        android:text="Are you sure?"/>
+        android:drawableLeft="@drawable/ic_baseline_close_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/colorError"/>
 
-    <LinearLayout style="@style/styleOkCancelButtonLayout">
-
-        <Button android:id="@+id/btnOK"
-            style="@style/styleOkButton"/>
-
-        <View style="@style/styleOkCancelButtonDivider"/>
-
-        <Button android:id="@+id/btnCancel"
-            style="@style/styleCancelButton"/>
-    </LinearLayout>
 </LinearLayout>

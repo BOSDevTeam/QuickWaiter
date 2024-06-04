@@ -242,6 +242,13 @@
         <item name="android:layout_margin">5dp</item>
     </style>
 
+    <style name="VerticalDivider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorSoftGray</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
     <style name="styleSetupHeaderTextView">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -48,7 +49,7 @@ public class ViewOrderActivity extends AppCompatActivity {
     final Context context = this;
     int warning_message=1,error_message=2,success_message=3,info_message=4, tableid, taxPercent, chargesPercent,waiterid,allowBillPrint;
     String tableName,waiterName;
-    double discount;
+    double discount,directTaxAmount,chargesAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +93,7 @@ public class ViewOrderActivity extends AppCompatActivity {
         View vi=inflater.inflate(R.layout.action_bar_view_order, null);
         TextView tvTitle=(TextView)vi.findViewById(R.id.tvTitle);
         ImageButton btnGetBill=(ImageButton)vi.findViewById(R.id.btnGetBill);
+        Button btnRequestBill=(Button)vi.findViewById(R.id.btnRequestBill);
 
         tvTitle.setText(title);
 
@@ -118,6 +120,62 @@ public class ViewOrderActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnRequestBill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DirectRequestBill directRequestBill=new DirectRequestBill();
+                directRequestBill.execute("");
+            }
+        });
+    }
+
+    public class DirectRequestBill extends AsyncTask<String,String,String> {
+        String msg;
+        int msg_type, tranId;
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                Connection con = serverconnection.CONN();
+                if (con == null) {
+                    msg = "Error in connection with SQL server";
+                    msg_type = error_message;
+                } else {
+
+                    String getTranId = "select Tranid from InvMasterSaleTemp where TableNameID=" + tableid;
+                    Statement st = con.createStatement();
+                    ResultSet rs = st.executeQuery(getTranId);
+
+                    if (rs.next()) tranId = rs.getInt(1);
+
+                    String execProc = "exec EntrySaleSaveTouchNormal @tranid=" + tranId;
+                    st = con.createStatement();
+                    st.execute(execProc);
+
+                    String query = "UPDATE InvMasterSale SET IsFromWaiter=1,Taxamount=" + directTaxAmount + ",RoomCharge=" + chargesAmount + " WHERE Tranid=" + tranId;
+                    st = con.createStatement();
+                    st.execute(query);
+
+                    msg = tableName + " Bill was requested successfully!";
+                    msg_type = success_message;
+                }
+            } catch (SQLException e) {
+                showMessage(error_message, e.getMessage());
+            }
+            return msg;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(String r) {
+            progressDialog.hide();
+            showMessage(msg_type, r);
+        }
     }
 
     public class RequestBill extends AsyncTask<String,String,String>{
@@ -173,7 +231,7 @@ public class ViewOrderActivity extends AppCompatActivity {
                     isSuccess=false;
                 }else{
                     //String get_order="select distinct(Name),sum(Qty),sum(CAST(ROUND(Amount, 2) AS MONEY)),ItemDis,SalePrice,[SID],isnull(Tastes,'') AS Tastes from InvTranSaleTemp where ItemDeleted=0 AND TableID="+ tableid +" group by Name,ItemDis,SalePrice,[SID],Tastes order by [SID]";
-                    String get_order="select distinct(Name),sum(Qty),sum(CAST(ROUND(Amount, 2) AS MONEY)),ItemDis,SalePrice,isnull(Tastes,'') AS Tastes,isnull(UnitName,'') AS NormalTastesWithoutParcel from InvTranSaleTemp where ItemDeleted=0 AND TableID="+ tableid +" group by Name,ItemDis,SalePrice,Tastes,UnitName";
+                    String get_order="select distinct(Name),sum(Qty),sum(CAST(ROUND(Amount, 2) AS MONEY)),ItemDis,SalePrice,isnull(Tastes,'') AS Tastes,isnull(UnitName,'') AS NormalTastesWithoutParcel,isnull(InputTaste,'') AS InputTaste from InvTranSaleTemp where ItemDeleted=0 AND TableID="+ tableid +" group by Name,ItemDis,SalePrice,Tastes,UnitName,InputTaste";
                     Statement st=con.createStatement();
                     ResultSet rs= st.executeQuery(get_order);
                     if(rs.next()){
@@ -197,7 +255,7 @@ public class ViewOrderActivity extends AppCompatActivity {
                                 discount+=curDiscount*floatQty;
                                 data.setAmount(rs.getDouble(3)-(curDiscount*floatQty));
                             }
-                            data.setAllTaste(rs.getString(6)+rs.getString(7));
+                            data.setAllTaste(rs.getString(6)+rs.getString(7)+ rs.getString(8));
                             lstViewOrder.add(data);
                         }while(rs.next());
                         isSuccess=true;
@@ -229,7 +287,7 @@ public class ViewOrderActivity extends AppCompatActivity {
 
     private void showOrder(List<TransactionData> lstViewOrder) {
         DecimalFormat df2 = new DecimalFormat("#");
-        double subTotal = 0, grandTotal, taxAmount = 0, chargesAmount;
+        double subTotal = 0, grandTotal, taxAmount = 0;
 
         viewOrderListAdapter = new ViewOrderListAdapter(this, lstViewOrder);
         lvViewOrder.setAdapter(viewOrderListAdapter);
@@ -257,6 +315,8 @@ public class ViewOrderActivity extends AppCompatActivity {
                 }
             }
         }
+
+        directTaxAmount=Math.round(taxPercent * (subTotal + chargesAmount) / 100);
 
         subTotal = Math.round(subTotal);
         taxAmount = Math.round(taxAmount);

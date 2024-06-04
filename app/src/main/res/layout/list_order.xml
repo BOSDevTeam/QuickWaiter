@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
@@ -15,7 +16,8 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="@color/colorAccent"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            tools:text="1"/>
 
         <TextView android:id="@+id/tvItemName"
             android:layout_width="wrap_content"
@@ -24,7 +26,9 @@
             android:typeface="monospace"
             android:textColor="@color/colorWhite"
             android:textStyle="bold"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            tools:text="Item Name"
+            tools:textColor="@color/colorSoftBlack"/>
 
         <TextView android:id="@+id/tvItemSub"
             android:layout_width="wrap_content"
@@ -34,7 +38,9 @@
             android:layout_marginLeft="5dp"
             android:textStyle="bold"
             android:background="@color/colorAccent"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:text="Item Sub"
+            tools:textColor="@color/colorSoftBlack"/>
 
         <TextView android:id="@+id/tvTaste"
             android:layout_width="wrap_content"
@@ -42,7 +48,9 @@
             android:textSize="16sp"
             android:textColor="@color/colorGray"
             android:layout_marginLeft="5dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Taste"
+            tools:textColor="@color/colorSoftBlack"/>
 
         <TextView android:id="@+id/tvTasteMulti"
             android:layout_width="wrap_content"
@@ -50,7 +58,9 @@
             android:textSize="16sp"
             android:textColor="@color/colorGray"
             android:layout_marginLeft="5dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Taste Multi"
+            tools:textColor="@color/colorSoftBlack"/>
 
         <TextView android:id="@+id/tvTastePrice"
             android:layout_width="wrap_content"
@@ -61,6 +71,16 @@
             android:textStyle="bold"
             android:visibility="gone"/>
     </LinearLayout>
+
+    <TextView android:id="@+id/tvInputTaste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorGray"
+        android:layout_marginLeft="25dp"
+        android:textStyle="bold"
+        tools:text="Input Taste"
+        tools:textColor="@color/colorSoftBlack"/>
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"

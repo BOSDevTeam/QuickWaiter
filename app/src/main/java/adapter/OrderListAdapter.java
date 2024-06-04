@@ -53,7 +53,7 @@ public class OrderListAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        TextView tvItemName, tvTaste, tvPNumber, tvTastePrice, tvItemSub, tvTasteMulti;
+        TextView tvItemName, tvTaste, tvPNumber, tvTastePrice, tvItemSub, tvTasteMulti,tvInputTaste;
         EditText etQuantity;
         ImageButton imgbtnPlus, imgbtnMinus, imgbtnCalculator, imgbtnTaste, imgbtnTasteMulti, imgbtnPNumber,btnMore;
         View row;
@@ -71,6 +71,7 @@ public class OrderListAdapter extends BaseAdapter {
             holder.tvItemSub = (TextView) row.findViewById(R.id.tvItemSub);
             holder.tvTaste = (TextView) row.findViewById(R.id.tvTaste);
             holder.tvTasteMulti = (TextView) row.findViewById(R.id.tvTasteMulti);
+            holder.tvInputTaste = (TextView) row.findViewById(R.id.tvInputTaste);
             holder.tvPNumber = (TextView) row.findViewById(R.id.tvPNumber);
             holder.tvTastePrice = (TextView) row.findViewById(R.id.tvTastePrice);
             holder.etQuantity = (EditText) row.findViewById(R.id.etQuantity);
@@ -104,6 +105,12 @@ public class OrderListAdapter extends BaseAdapter {
 
         holder.tvTaste.setText(lstTransactionData.get(position).getTaste());
         holder.tvTasteMulti.setText(lstTransactionData.get(position).getTasteMulti());
+
+        if (lstTransactionData.get(position).getInputTaste() != null && lstTransactionData.get(position).getInputTaste().length() != 0) {
+            holder.tvInputTaste.setVisibility(View.VISIBLE);
+            holder.tvInputTaste.setText(lstTransactionData.get(position).getInputTaste());
+        } else holder.tvInputTaste.setVisibility(View.GONE);
+
         holder.tvTastePrice.setText(String.valueOf(lstTransactionData.get(position).getTastePrice()));
         if (lstTransactionData.get(position).getpNumber() != 0)
             holder.tvPNumber.setText(String.valueOf(lstTransactionData.get(position).getpNumber()));
@@ -163,7 +170,7 @@ public class OrderListAdapter extends BaseAdapter {
             @Override
             public void onClick(View arg0) {
                 if (orderButtonClickListener != null) {
-                    orderButtonClickListener.onMoreButtonClickListener(position, holder.row);
+                    orderButtonClickListener.onMoreButtonClickListener(position, holder.tvInputTaste);
                 }
             }
         });

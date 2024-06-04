@@ -6,7 +6,7 @@ package data;
 public class TransactionData {
 
     int tranid, sysid, tableid, waiterid, integerQty, stype, counterID, incomeid, sid, noDis, itemDis, pNumber, isUseTasteMulti;
-    String tableName, waiterName, itemid, itemName, itemNameTaste, taste, stringQty, tasteMulti, allTaste, allItemSub;
+    String tableName, waiterName, itemid, itemName, itemNameTaste, taste, stringQty, tasteMulti, allTaste, allItemSub,inputTaste;
     double salePrice, amount, tastePrice;
     float floatQty;
 
@@ -224,5 +224,13 @@ public class TransactionData {
 
     public void setAllTaste(String allTaste) {
         this.allTaste = allTaste;
+    }
+
+    public String getInputTaste() {
+        return inputTaste;
+    }
+
+    public void setInputTaste(String inputTaste) {
+        this.inputTaste = inputTaste;
     }
 }

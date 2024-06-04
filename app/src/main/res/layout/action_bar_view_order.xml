@@ -15,6 +15,17 @@
         android:layout_marginLeft="10dp"
         android:gravity="center"/>
 
+    <Button android:id="@+id/btnRequestBill"
+        android:text="@string/request_bill"
+        android:layout_toLeftOf="@+id/divider"
+        style="@style/styleMainActionBarButton"
+        android:textColor="@color/colorWhite"/>
+
+    <View android:id="@+id/divider"
+        style="@style/VerticalDivider"
+        android:layout_toLeftOf="@+id/btnGetBill"
+        android:background="#403F3F"/>
+
     <ImageButton android:id="@+id/btnGetBill"
         android:src="@mipmap/get_bill"
         android:layout_alignParentEnd="true"

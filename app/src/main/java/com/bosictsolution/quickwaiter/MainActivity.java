@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
     String ioException;
     private ESCPOSPrinter posPtr;
 
-    static TextView tvTaste,tvTasteMulti,tvTastePrice;
+    static TextView tvTaste,tvTasteMulti,tvTastePrice,tvInputTaste;
     ExpandableListView expList;
     ListView lvItem, lvOrder;
     TextView tvSubMenuName, tvTableName,tvShowTaste,tvShowTastePrice;
@@ -648,10 +648,9 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
     }
 
     public class SendOrder extends AsyncTask<String,String,String> {
-        String msg = "", orderItemID, orderItemName, orderAllTaste = "", orderItemNameTaste, insert_multi_taste, orderMultiTaste, normalTasteWithoutParcel = "";
+        String msg = "", orderItemID, orderItemName, orderAllTaste = "", orderItemNameTaste, insert_multi_taste, orderMultiTaste, normalTasteWithoutParcel = "",orderInputTaste;
         boolean isSuccess = false;
         int msg_type, tranid, orderSysID, orderCounterID, orderSType, orderIntQuantity, orderNoDis, orderItemDis, orderPNumber, allowPrint, parcel = 0;
-        ;
         float floatQty, orderFloatQuantity;
         double orderAmount, orderPrice;
 
@@ -769,18 +768,19 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
                         orderNoDis = lstOrderItem.get(i).getNoDis();
                         orderItemDis = lstOrderItem.get(i).getItemDis();
                         orderPNumber = lstOrderItem.get(i).getpNumber();
+                        orderInputTaste = lstOrderItem.get(i).getInputTaste();
                         floatQty = Float.parseFloat(lstOrderItem.get(i).getStringQty());
                         if (floatQty == Math.round(floatQty)) {
                             orderIntQuantity = Integer.parseInt(lstOrderItem.get(i).getStringQty());
                             orderAmount = orderPrice * orderIntQuantity;
-                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste,BDis) VALUES ";
-                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderIntQuantity + "," + orderPrice + "," + orderAmount + "," + orderIntQuantity + ",'" + orderTableName + "','" + normalTasteWithoutParcel + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber + ",'" + orderMultiTaste + "'," + parcel;
+                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste,BDis,InputTaste) VALUES ";
+                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderIntQuantity + "," + orderPrice + "," + orderAmount + "," + orderIntQuantity + ",'" + orderTableName + "','" + normalTasteWithoutParcel + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber + ",'" + orderMultiTaste + "'," + parcel + ",N'"+ orderInputTaste+"'";
                             insert_order = insert_order + " " + sql_query + "(" + sql_data + ")";
                         } else {
                             orderFloatQuantity = floatQty;
                             orderAmount = orderPrice * orderFloatQuantity;
-                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste,BDis) VALUES ";
-                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderFloatQuantity + "," + orderPrice + "," + orderAmount + "," + orderFloatQuantity + ",'" + orderTableName + "','" + normalTasteWithoutParcel + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber + ",'" + orderMultiTaste + "'," + parcel;
+                            String sql_query = "INSERT INTO InvTranSaleTemp(Tranid,SysID,TableID,TBName,WaiterID,Waitername,ItemID,ItemName,Name,Tastes,Qty,SalePrice,Amount,UnitQty,Remark,UnitName,FoodDis,Stype,Status,ItemNDis,ItemDis,PNumber,MultiTaste,BDis,InputTaste) VALUES ";
+                            String sql_data = tranid + "," + orderSysID + "," + orderTableID + ",'" + orderTableName + "'," + orderWaiterID + ",'" + orderWaiterName + "'," + orderItemID + ",N'" + orderItemName + "',N'" + orderItemNameTaste + "','" + orderAllTaste + "'," + orderFloatQuantity + "," + orderPrice + "," + orderAmount + "," + orderFloatQuantity + ",'" + orderTableName + "','" + normalTasteWithoutParcel + "'," + orderCounterID + "," + orderSType + "," + 0 + "," + orderNoDis + "," + orderItemDis + "," + orderPNumber + ",'" + orderMultiTaste + "'," + parcel+ ",N'"+ orderInputTaste+"'";
                             insert_order = insert_order + " " + sql_query + "(" + sql_data + ")";
                         }
 
@@ -797,14 +797,14 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
                     //if (insert_multi_taste.length() != 0) st.execute(insert_multi_taste);
 
                     // for booking tableid delete
-                    String sql_query_booking_table = "select * from Booking where Deleted=0 and TableID=" + orderTableID;
+                   /* String sql_query_booking_table = "select * from Booking where Deleted=0 and TableID=" + orderTableID;
                     Statement st_booking_table = con.createStatement();
                     ResultSet rs_booking_table = st_booking_table.executeQuery(sql_query_booking_table);
                     if (rs_booking_table.next()) {
                         String sql_query_booking_delete = "update Booking set Deleted=1 where TableID=" + orderTableID;
                         Statement st_booking_delete = con.createStatement();
                         st_booking_delete.execute(sql_query_booking_delete);
-                    }
+                    }*/
 
                     msg = orderTableName + " Order Sent!";
                     isSuccess = true;
@@ -1095,8 +1095,8 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
     }
 
     @Override
-    public void onMoreButtonClickListener(int position, View view) {
-
+    public void onMoreButtonClickListener(int position, TextView textView) {
+        showMoreMenuDialog(position,textView);
     }
 
     @Override
@@ -1295,7 +1295,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
         }
     }
 
-    private void placeOrder(int position,String taste,String tasteMulti,double tastePrice){
+    private void placeOrder(int position,String taste,String tasteMulti,double tastePrice,String inputTaste){
         String itemSub="";
         int itemSubPrice=0;
 
@@ -1323,6 +1323,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
         data.setIntegerQty(1);
         data.setTaste(taste);
         data.setTasteMulti(tasteMulti);
+        data.setInputTaste(inputTaste);
         data.setNoDis(lstItemData.get(position).getNoDis());
         data.setItemDis(lstItemData.get(position).getItemDis());
         data.setTastePrice(tastePrice);
@@ -1926,7 +1927,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
             @Override
             public void onClick( View arg0) {
                 if(!isTasteEdit){
-                    placeOrder(position,tvShowTaste.getText().toString(),"",0);
+                    placeOrder(position,tvShowTaste.getText().toString(),"",0,"");
                 }else{
                     tvTaste.setText("");
                     tvTaste.setText(tvShowTaste.getText().toString());
@@ -1941,7 +1942,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
             @Override
             public void onClick( View arg0) {
                 if(!isTasteEdit){
-                    placeOrder(position,"","",0);
+                    placeOrder(position,"","",0,"");
                 }
                 isTasteEdit=false;
                 alertDialog.dismiss();
@@ -1982,7 +1983,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
             }
         }else{
             if(!isTasteEdit){
-                placeOrder(position,"","",0);
+                placeOrder(position,"","",0,"");
             }else{
                 showMessage(info_message,"No Taste for this Item!");
                 isTasteEdit=false;
@@ -2004,8 +2005,8 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
             public void onClick( View arg0) {
                 if(!isTasteEdit){
                     if(tvShowTastePrice.getText().toString().trim().length()!=0)
-                        placeOrder(position,"",tvShowTaste.getText().toString(),Double.parseDouble(tvShowTastePrice.getText().toString().trim()));
-                    else placeOrder(position,"",tvShowTaste.getText().toString(),0);
+                        placeOrder(position,"",tvShowTaste.getText().toString(),Double.parseDouble(tvShowTastePrice.getText().toString().trim()),"");
+                    else placeOrder(position,"",tvShowTaste.getText().toString(),0,"");
                 }else{
                     tvTasteMulti.setText(tvShowTaste.getText().toString());
                     tvTastePrice.setText(tvShowTastePrice.getText().toString());
@@ -2023,7 +2024,7 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
             @Override
             public void onClick( View arg0) {
                 if(!isTasteEdit){
-                    placeOrder(position,"","",0);
+                    placeOrder(position,"","",0,"");
                 }
                 isTasteEdit=false;
                 alertDialog.dismiss();
@@ -2139,6 +2140,83 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
         });
     }
 
+    private void showMoreMenuDialog(int position,TextView textView){
+        LayoutInflater reg=LayoutInflater.from(context);
+        View passwordView=reg.inflate(R.layout.dialog_more_menu, null);
+        android.app.AlertDialog.Builder passwordDialog=new android.app.AlertDialog.Builder(context);
+        passwordDialog.setView(passwordView);
+
+        final Button btnAddTaste=(Button)passwordView.findViewById(R.id.btnAddTaste);
+        final Button btnRemoveItem=(Button)passwordView.findViewById(R.id.btnRemoveItem);
+
+        passwordDialog.setCancelable(true);
+        final android.app.AlertDialog passwordRequireDialog=passwordDialog.create();
+        passwordRequireDialog.show();
+
+        btnAddTaste.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                passwordRequireDialog.dismiss();
+                String curTaste = lstOrderItem.get(position).getInputTaste();
+                isTasteEdit = true;
+                taste_position = position;
+                tvInputTaste = textView;
+                showAddTasteDialog(position,curTaste);
+            }
+        });
+
+        btnRemoveItem.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                passwordRequireDialog.dismiss();
+                removeItem(position);
+            }
+        });
+    }
+
+    private void showAddTasteDialog(int position,String curTaste){
+        LayoutInflater reg=LayoutInflater.from(context);
+        View passwordView=reg.inflate(R.layout.dialog_add_taste, null);
+        android.app.AlertDialog.Builder passwordDialog=new android.app.AlertDialog.Builder(context);
+        passwordDialog.setView(passwordView);
+
+        final EditText etTaste=(EditText)passwordView.findViewById(R.id.etTaste);
+        final Button btnCancel=(Button)passwordView.findViewById(R.id.btnCancel);
+        final Button btnAdd=(Button)passwordView.findViewById(R.id.btnAdd);
+
+        etTaste.setText(curTaste);
+
+        passwordDialog.setCancelable(false);
+        final android.app.AlertDialog passwordRequireDialog=passwordDialog.create();
+        passwordRequireDialog.show();
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                passwordRequireDialog.dismiss();
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                if(!isTasteEdit){
+                    placeOrder(position,"","",0,etTaste.getText().toString());
+                }else{
+                    tvInputTaste.setText("");
+                    tvInputTaste.setText(etTaste.getText().toString());
+                    lstOrderItem.get(taste_position).setInputTaste(etTaste.getText().toString());
+                }
+                isTasteEdit=false;
+                passwordRequireDialog.dismiss();
+            }
+        });
+    }
+
     private void isShowTasteAndPlaceOrder(int position){
         int incomeid=lstItemData.get(position).getIncomeid();
         Cursor cur_auto_taste=db.getAutoTasteFeature();
@@ -2150,8 +2228,15 @@ public class MainActivity extends AppCompatActivity implements DialogTasteClickL
             else showTasteDialog(position);
         }
         else {
-            placeOrder(position,"","",0);
+            placeOrder(position,"","",0,"");
         }
+    }
+
+    private void removeItem(int position){
+        lstOrderItem.remove(position);
+        orderListAdapter=new OrderListAdapter(this,lstOrderItem);
+        lvOrder.setAdapter(orderListAdapter);
+        orderListAdapter.setOnOrderButtonClickListener(this);
     }
 
     /**

@@ -88,4 +88,7 @@
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
     <string name="hide_commercial_tax">Hide Commercial Tax</string>
+    <string name="add_taste">Add Taste</string>
+    <string name="remove_item">Remove Item</string>
+    <string name="request_bill">Request Bill</string>
 </resources>
